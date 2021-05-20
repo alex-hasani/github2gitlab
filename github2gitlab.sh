@@ -9,40 +9,52 @@
 ### Step 1. Make sure you have a local copy of all "old repo"
 ### branches and tags.
 # Fetch all of the remote branches and tags:
-git fetch origin
+#git fetch origin
 
 # View all "old repo" local and remote branches:
-git branch -a
+#git branch -a
 
 # If some of the remotes/ branches doesn't have a local copy,
 # checkout to create a local copy of the missing ones:
-git checkout -b <branch> origin/<branch>
+#git checkout -b <branch> origin/<branch>
 
 # Now we have to have all remote branches locally.
 
 
 ### Step 2. Add a "new repo" as a new remote origin:
-git remote add new-origin git@github.com:user/repo.git
+#git remote add new-origin git@github.com:user/repo.git
 
 
 ### Step 3. Push all local branches and tags to a "new repo".
 # Push all local branches (note we're pushing to new-origin):
-git push --all new-origin
+#git push --all new-origin
 
 # Push all tags:
-git push --tags new-origin
+#git push --tags new-origin
 
 
 ### Step 4. Remove "old repo" origin and its dependencies.
 # View existing remotes (you'll see 2 remotes for both fetch and push)
-git remote -v
+#git remote -v
 
 # Remove "old repo" remote:
-git remote rm origin
+#git remote rm origin
 
 # Rename "new repo" remote into just 'origin':
-git remote rename new-origin origin
+#git remote rename new-origin origin
 
 
 ### Done! Now your local git repo is connected to "new repo" remote
 ### which has all the branches, tags and commits history.
+
+# Clone repo
+git clone --mirror git@github.corp.ebay.com:OCIOCI-Azure/K8s-Clustering.git
+
+# Change into app directory
+cd app
+
+# Update git config
+git config --unset core.bare
+
+# Checkout master branch
+git checkout master
